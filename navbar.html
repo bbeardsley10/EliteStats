@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Elite Stats</title>
+  <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+   
+    .navbar {
+      background-color: #20232a;
+      font-size: 1.1rem;
+    }
+    .navbar-brand, .nav-link {
+      color: #ffffff !important;
+    }
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    .navbar-brand:hover, .nav-link:hover {
+      color: #61dafb !important;
+    }
+
+    .dropdown-menu.form-dropdown {
+      min-width: 300px;
+    }
+
+    #dropdownButton{
+        background-color: rgb(248, 202, 35);
+        border-color: rgb(248, 202, 35);
+    }
+
+    .featured {
+      color: black;
+      text-align: center;
+      padding: 50px 20px;
+      border-bottom: 4px solid #20232a;
+      background-color: lightblue;
+    }
+    .featured h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+    .featured p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    #signup {
+      color: #61dafb;
+      font-size: 0.9rem;
+    }
+    #signup:hover {
+      color: #20232a;
+    }
+
+    .sports-sections {
+      margin: 30px 0;
+      
+    }
+    .sports-section-card {
+      border: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .sports-section-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .card-title {
+      font-size: 1.25rem;
+      color: #20232a;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Elite Stats</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav me-auto">
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">NBA</a>
+              <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="./NBA/nbaScores.html">Scores</a></li>
+                  <li><a class="dropdown-item" href="./NBA/nbaStanding.html">Standings</a></li>
+                  <li><a class="dropdown-item" href="./NBA/nbaTeams.html">Teams</a></li>
+              </ul>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">MLB</a>
+              <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="./MLB/mlbScores.html">Scores</a></li>
+                  <li><a class="dropdown-item" href="./MLB/mlbStanding.html">Standings</a></li>
+                  <li><a class="dropdown-item" href="./MLB/mlbTeams.html">Teams</a></li>
+              </ul>
+          </li>
+          <!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Soccer</a>
+              <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Leagues</a></li>
+                  <li><a class="dropdown-item" href="#">Champions League</a></li>
+                  <li><a class="dropdown-item" href="#">Premier League</a></li>
+                  <li><a class="dropdown-item" href="#">La Liga</a></li>
+                  <li><a class="dropdown-item" href="#">MLS</a></li>
+              </ul>
+          </li> -->
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">NFL</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./NFL/nflScores.html">Scores</a></li>
+                <li><a class="dropdown-item" href="./NFL/nflStanding.html">Standings</a></li>
+                <li><a class="dropdown-item" href="./NFL/nflTeams.html">Teams</a></li>
+              </ul>
+          </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
+          <li>
+              <div class="dropdown">
+                  <button type="button" id="dropdownButton" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      Account
+                  </button>
+                  <form class="dropdown-menu p-4 form-dropdown dropdown-menu-end">
+                      <div class="mb-3">
+                          <label for="email" class="form-label">Email</label>
+                          <input type="email" class="form-control" id="email" placeholder="email@example.com">
+                      </div>
+                      <div class="mb-3">
+                          <label for="password" class="form-label">Password</label>
+                          <input type="password" class="form-control" id="password" placeholder="Password">
+                      </div>
+                      <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="rememberCheck">
+                          <label class="form-check-label" for="rememberCheck">Remember me</label>
+                      </div>
+                      <div class="mt-3">
+                          <a id="signup" href="./signup.html">Create New Account</a>
+                      </div>
+                      <button type="submit" class="btn btn-primary mt-3">Sign in</button>
+                  </form>
+              </div>
+          </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="featured">
+    <h1>Welcome to Elite Stats</h1>
+    <p>Your go to source for live scores, standings, and team information for NBA, MLB, and NFL.</p>
+</div>
+
+<div class="container sports-sections">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card sports-section-card">
+                <div class="card-body">
+                    <h5 class="card-title">NBA</h5>
+                    <p class="card-text">Catch up on the latest NBA scores, standings, and team stats.</p>
+                    <a href="./NBA/nbaScores.html" class="btn btn-dark">View NBA</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card sports-section-card">
+                <div class="card-body">
+                    <h5 class="card-title">MLB</h5>
+                    <p class="card-text">Stay updated with MLB scores and standings.</p>
+                    <a href="./MLB/mlbScores.html" class="btn btn-dark">View MLB</a>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col-md-3">
+            <div class="card sports-section-card">
+                <div class="card-body">
+                    <h5 class="card-title">Soccer</h5>
+                    <p class="card-text">Explore stats from major soccer leagues around the world.</p>
+                    <a href="#" class="btn btn-dark">View Soccer</a>
+                </div>
+            </div>
+        </div> -->
+        <div class="col-md-3">
+            <div class="card sports-section-card">
+                <div class="card-body">
+                    <h5 class="card-title">NFL</h5>
+                    <p class="card-text">Follow the latest scores and stats from the NFL.</p>
+                    <a href="./NFL/nflScores.html" class="btn btn-dark">View NFL</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

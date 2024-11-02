@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFL Teams</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../teamLibrary.js"></script> 
+
+    <style>
+        .league-title {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        .team-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            padding: 15px;
+        }
+        .team-card {
+            width: 200px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .team-card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .team-card h5 {
+            font-size: 1.1rem;
+            color: #333;
+        }
+        .team-card p {
+            font-size: 0.9rem;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../navbar.html">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+              <li class="nav-item">
+                  <a class="nav-link" href="mlbTeams.html">Teams</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="mlbStanding.html">Standings</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="mlbScores.html">Live Score</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+        <div id="team-container"></div>
+    </div>
+
+    <script>
+
+        function generateTeamsHTML() {
+            const container = document.getElementById("team-container");
+            container.innerHTML = "";
+
+            // Create sections for each conference
+            ["AL", "NL"].forEach(league => {
+                
+                
+                const conferenceHTML = `
+                    <div class="league-title">${league} League</div>
+                    <div class="team-list">
+                        ${mlbTeams
+                            .filter(team => team.league === league)
+                            .map(team => `
+                                <div class="team-card">
+                                    <img src="${team.logo}" alt="${team.name} Logo">
+                                    <h5>${team.name}</h5>
+                                    <p>${team.division} Division</p>
+                                </div>
+                            `).join("")}
+                    </div>
+                `;
+                container.innerHTML += conferenceHTML;
+            });
+        }
+
+        
+        document.addEventListener("DOMContentLoaded", generateTeamsHTML);
+    </script>
+
+</body>
+</html>
